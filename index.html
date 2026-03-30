@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Freshly Baked - Bakery & Cafe</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- Sticky Navbar -->
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-wheat-awn"></i> Bliss Bakery
+            </a>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#hero">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#menu">Menu</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    
+                    <li class="nav-controls">
+                        <!-- Currency Selector -->
+                        <select id="currency-select" class="currency-select">
+                            <option value="USD">USD ($)</option>
+                            <option value="INR">INR (₹)</option>
+                        </select>
+                        
+                        <!-- Auth Control (Login Icon or User Bubble) -->
+                        <div id="auth-controls-desktop" class="auth-controls">
+                            <button class="nav-btn login-btn" title="Login / Sign Up">
+                                <i class="fa-regular fa-user"></i>
+                            </button>
+                        </div>
+                        
+                        <div id="user-controls-desktop" class="user-controls hidden">
+                            <span class="greeting">Hi, <b class="nav-user-name">User</b></span>
+                            <button class="nav-btn logout-btn" title="Logout">
+                                <i class="fa-solid fa-right-from-bracket"></i>
+                            </button>
+                        </div>
+
+                        <!-- Cart -->
+                        <button id="cart-btn" class="nav-btn">
+                            <i class="fa-solid fa-cart-shopping"></i>
+                            <span id="cart-count" class="cart-count">0</span>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+
+            <div class="mobile-controls">
+                <button class="nav-btn login-btn mobile-only" title="Login / Sign Up">
+                     <i class="fa-regular fa-user"></i>
+                </button>
+                <button id="mobile-cart-btn" class="nav-btn mobile-only">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <span id="mobile-cart-count" class="cart-count">0</span>
+                </button>
+                <div class="hamburger">
+                    <i class="fa-solid fa-bars"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-overlay"></div>
+        <div class="hero-content fade-in">
+            <h1>Freshly Baked Happiness</h1>
+            <p>Delicious cakes, pastries & coffee made with love every single day.</p>
+            <a href="#menu" class="btn btn-primary">Order Now</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about section-padding">
+        <div class="container">
+            <div class="about-content fade-in">
+                <div class="about-text">
+                    <h2 class="section-title">Our Story</h2>
+                    <p>Welcome to Bliss Bakery, where passion meets pastry. Since 2010, we've been crafting artisanal breads, exquisite cakes, and the perfect cup of coffee for our community.</p>
+                    <p>Every morning, our bakers arrive before the sun to start mixing, kneading, and baking. We believe in using only the finest ingredients—real butter, farm-fresh eggs, and rich chocolate—to create flavors that bring comfort and joy.</p>
+                    <a href="#contact" class="btn btn-secondary">Visit Us</a>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?q=80&w=1000&auto=format&fit=crop" alt="Bakery interior with fresh bread" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Section -->
+    <section id="menu" class="menu section-padding bg-light">
+        <div class="container">
+            <div class="text-center fade-in">
+                <h2 class="section-title">Our Favorites</h2>
+                <p>Discover our most loved treats</p>
+            </div>
+            
+            <div class="menu-grid format-products" id="menu-grid">
+                <!-- Products injected via JS depending on Currency -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services section-padding">
+        <div class="container">
+            <div class="text-center fade-in">
+                <h2 class="section-title">What We Offer</h2>
+                <p>More than just a daily bakery</p>
+            </div>
+            
+            <div class="services-grid">
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-cake-candles"></i>
+                    </div>
+                    <h3>Custom Cakes</h3>
+                    <p>Beautiful, customized cakes designed specially for your memorable occasions and milestones.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-gift"></i>
+                    </div>
+                    <h3>Birthday Orders</h3>
+                    <p>Pre-order cupcakes, party boxes, and special treats to make any birthday a bit sweeter.</p>
+                </div>
+                
+                <div class="service-card fade-in">
+                    <div class="service-icon">
+                        <i class="fa-solid fa-bell-concierge"></i>
+                    </div>
+                    <h3>Event Catering</h3>
+                    <p>We provide full spread catering of pastries, desserts, and coffee for corporate meetings or parties.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+        <div class="container">
+            <div class="text-center fade-in">
+                <h2 class="section-title">Get in Touch</h2>
+                <p>We'd love to hear from you</p>
+            </div>
+            
+            <div class="contact-wrapper fade-in">
+                 <div class="contact-info">
+                    <div class="info-item">
+                        <i class="fa-solid fa-location-dot"></i>
+                        <div>
+                            <h4>Location</h4>
+                            <p>123 Baker Street, Sweet Vanilla District<br>Cityville, ST 12345</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-phone"></i>
+                        <div>
+                            <h4>Phone</h4>
+                            <p>+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <i class="fa-solid fa-envelope"></i>
+                        <div>
+                            <h4>Email</h4>
+                            <p>hello@blissbakery.com</p>
+                        </div>
+                    </div>
+                </div>
+                <form class="contact-form" id="contact-form">
+                    <div class="input-group">
+                        <input type="text" placeholder="Your Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" placeholder="Your Email" required>
+                    </div>
+                    <div class="input-group">
+                        <textarea rows="5" placeholder="Your Message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container text-center">
+            <h2 class="footer-logo"><i class="fa-solid fa-wheat-awn"></i> Bliss Bakery</h2>
+            <div class="social-links">
+                <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-twitter"></i></a>
+            </div>
+            <p class="copyright">&copy; <span id="year"></span> Bliss Bakery. All rights reserved.</p>
+        </div>
+    </footer>
+
+
+    <!-- ================= MODALS & OVERLAYS ================= -->
+
+    <!-- Cart Sidebar -->
+    <div class="cart-overlay" id="cart-overlay"></div>
+    <div class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>Your Cart</h3>
+            <button id="close-cart" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <div class="empty-cart-msg">Your cart is empty.</div>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Total:</span>
+                <span id="cart-total-price">$0.00</span>
+            </div>
+            <button id="checkout-btn" class="btn btn-primary w-100" disabled>Proceed to Checkout</button>
+        </div>
+    </div>
+
+    <!-- Auth Modal (Login / Sign Up) -->
+    <div class="modal-overlay" id="auth-overlay">
+        <div class="checkout-container auth-container">
+            <button id="close-auth" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="checkout-content">
+                
+                <div class="auth-tabs">
+                    <button class="auth-tab active" data-tab="login">Login</button>
+                    <button class="auth-tab" data-tab="signup">Sign Up</button>
+                </div>
+                
+                <!-- Login Form -->
+                <form id="login-form" class="auth-form active">
+                    <div class="input-group">
+                        <input type="email" id="login-email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="login-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mt-2">Login</button>
+                </form>
+
+                <!-- Signup Form -->
+                <form id="signup-form" class="auth-form">
+                    <div class="input-group">
+                        <input type="text" id="signup-name" placeholder="Full Name" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="email" id="signup-email" placeholder="Email Address" required>
+                    </div>
+                    <div class="input-group">
+                        <input type="password" id="signup-password" placeholder="Password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 mt-2">Create Account</button>
+                </form>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal-overlay" id="checkout-overlay">
+        <div class="checkout-container">
+            <button id="close-checkout" class="close-btn"><i class="fa-solid fa-xmark"></i></button>
+            <div class="checkout-content">
+                
+                <div id="checkout-form-section">
+                    <div class="checkout-header">
+                        <h2>Secure Checkout</h2>
+                        <p>Total Amount: <span id="checkout-amount" style="font-weight:bold; color:var(--primary-color);">$0.00</span></p>
+                    </div>
+                    
+                    <form id="payment-form">
+                        <h4>Shipping Information</h4>
+                        <div class="input-group">
+                            <input type="text" id="checkout-name" placeholder="Full Name" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" id="checkout-email" placeholder="Email Address" required>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" placeholder="Delivery Address" required>
+                        </div>
+                        
+                        <h4 class="mt-4">Payment Details</h4>
+                        <div class="payment-methods">
+                            <div class="payment-method active"><i class="fa-brands fa-cc-visa"></i></div>
+                            <div class="payment-method"><i class="fa-brands fa-cc-mastercard"></i></div>
+                            <div class="payment-method"><i class="fa-brands fa-cc-paypal"></i></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="text" placeholder="Card Number (Dummy)" minlength="16" maxlength="19" required>
+                        </div>
+                        <div class="modal-row">
+                            <div class="input-group">
+                                <input type="text" placeholder="MM/YY" required>
+                            </div>
+                            <div class="input-group">
+                                <input type="text" placeholder="CVV" required>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" id="pay-now-btn" class="btn btn-primary w-100 mt-4">
+                            Pay Now <i class="fa-solid fa-lock"></i>
+                        </button>
+                    </form>
+                </div>
+
+                <!-- Success Screen hidden by default -->
+                <div id="payment-success" class="payment-success hidden">
+                    <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+                    <h3>Payment Successful!</h3>
+                    <p>Your order has been placed and is being prepared.</p>
+                    <button id="back-to-home" class="btn btn-primary outline mt-4">Continue Shopping</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
